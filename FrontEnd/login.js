@@ -9,9 +9,34 @@ form.addEventListener('submit', event=>{
     }
     console.log(body);
     const chargeUtile = JSON.stringify(body);
-    fetch('http://localhost:5678/api/users/login', {method: "POST", headers: { "Content-Type": "application/json" }, body: chargeUtile });
+    fetch('http://localhost:5678/api/users/login', {method: "POST", headers: { "Content-Type": "application/json" }, body: chargeUtile })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Échec de la connexion.');
+        }
+        return response.json(); 
+    })
+    .then(data => { 
+        localStorage.setItem('token', data.token);
+        // getToken();
+        window.location.href = 'index.html';
+    })
+    .catch(error => {
+        console.error('Erreur de connexion :', error.message);
+    });
 });
+
+
+
+
+
+
+
 
 // email: sophie.bluel@test.tld
 
 // password: S0phie 
+
+
+
+
