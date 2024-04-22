@@ -53,7 +53,7 @@ function triWorks(buttonId, works){
     const container = document.querySelector('.gallery');
     container.innerHTML = '';
     works.forEach(work =>{
-        if (buttonId===work.categoryId.toString()){
+        if (buttonId===work.categoryId.toString() || buttonId === '0'){
                 displayAWork(work);
         };
     });
