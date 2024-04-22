@@ -3,23 +3,27 @@ async function  getWorks (){
 const response = await fetch('http://localhost:5678/api/works');
 return(response.json());};
 
-//Afficher les travaux//
-async function displayWorks() {
-    const data = await getWorks();
-        data.forEach(work => {
-            let container = document.querySelector('.gallery'); //là où s'affichent les travaux dans le HTML
-            const workContainer = document.createElement('figure'); // création dynamique card pour présenter un travaux
-            const workImg = document.createElement('img');
-            workImg.src = work.imageUrl;
-            const workFigCaption = document.createElement('figcaption');  
-            workFigCaption.innerText = `${work.title}`;
-            workContainer.appendChild(workImg);
-            workContainer.appendChild(workFigCaption);
-            container.appendChild(workContainer);
-        });
-    }
+function displayAWork(work){
+    let container = document.querySelector('.gallery'); //là où s'affichent les travaux dans le HTML
+    const workContainer = document.createElement('figure'); // création dynamique card pour présenter un travaux
+    const workImg = document.createElement('img');
+    workImg.src = work.imageUrl;
+    const workFigCaption = document.createElement('figcaption');  
+    workFigCaption.innerText = `${work.title}`;
+    workContainer.appendChild(workImg);
+    workContainer.appendChild(workFigCaption);
+    container.appendChild(workContainer);
+}
 
-displayWorks(); // Appel fonction pour afficher les travaux 
+//Afficher les travaux//
+async function displayWorks(){
+    const data = await getWorks();
+    const container = document.querySelector('.gallery');
+    container.innerHTML = ''; 
+        data.forEach(work => {
+            displayAWork(work);
+        });
+    } 
 
 //fonction récupérer les filtres (sauf celui 'Tous')
 async function getFilters (){
@@ -44,30 +48,35 @@ async function displayFilters (){
     });
 };
 
+// On trie, cad on affiche les travaux si id du travaux = id du bouton 
+function triWorks(buttonId, works){
+    const container = document.querySelector('.gallery');
+    container.innerHTML = '';
+    works.forEach(work =>{
+        if (buttonId===work.categoryId.toString()){
+                displayAWork(work);
+        };
+    });
+};
+
 // On écoute le bouton cliqué par l'utilisateur et récupéront l'id lié
 async function btnToListen(){
     await displayFilters();
     const buttonsToListen= document.querySelectorAll("button");
     buttonsToListen.forEach(button => {
-        button.addEventListener("click", event => {
+        button.addEventListener("click", async (event) => {
         const buttonId = button.getAttribute('data-id');
-        console.log(buttonId);
+        const works = await getWorks();
+        triWorks(buttonId, works);
     });
 });}
 
-//On trie, cad on affiche les travaux si id du travaux = id du bouton 
-function triWorks(){
-    workContainer.forEach(work){
-    if (buttonId=work.category.id){
-
-    }
-    }
-}
-
-
-
 async function main () {
     await btnToListen();
+    await displayWorks();
 };
 
 main();
+
+
+
