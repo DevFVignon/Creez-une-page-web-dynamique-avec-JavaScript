@@ -235,3 +235,56 @@ nav li a {
 	text-decoration: none;
 	color: black;
 }
+
+#modifyButton{
+	display: inline-flex;
+	background-color: white;
+	border: none;
+	gap: 10px;
+
+
+
+	position: absolute;
+    top: 0;
+    right: 0; 
+    margin-top: 8px; 
+    margin-right: 22vw;
+}
+
+#modifyButton .fa-solid.fa-pen-to-square {
+	width: auto;
+	height: auto;
+}
+
+.portfolio--h2AndButton{
+	display: flex;
+	flex-direction: row;
+	gap: 30px; 
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+    position: relative; /* Ajouter position relative pour le conteneur */
+}
+
+#portfolio h2 {
+	margin-bottom: 7px;
+}
+
+.errorMessage{
+	color: rgba( 207, 22, 22) ;
+	margin: 20px 0px 10px 0px;
+	display: none;
+}
+
+@media screen and (max-width: 1440px) {
+    #boutonModifier {
+        position: static; /* Changez la position à statique pour que le bouton suive le flux normal */
+        display: block; /* Assurez-vous que le bouton est toujours visible */
+        margin-top: 10px; 
+		margin-left: auto;
+		margin-right: auto;
+    }
+}
+
+
+

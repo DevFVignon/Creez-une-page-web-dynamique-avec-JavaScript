@@ -1,4 +1,5 @@
 const form = document.querySelector('.login');
+const errorMessage =  document.querySelector('.errorMessage');
 
 form.addEventListener('submit', event=>{
     event.preventDefault();
@@ -23,6 +24,7 @@ form.addEventListener('submit', event=>{
     })
     .catch(error => {
         console.error('Erreur de connexion :', error.message);
+        errorMessage.style.display = 'block';
     });
 });
 
