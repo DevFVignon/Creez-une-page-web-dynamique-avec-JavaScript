@@ -1,9 +1,9 @@
 //Récupérer les travaux//
-async function  getWorks (){
+export async function  getWorks (){
 const response = await fetch('http://localhost:5678/api/works');
 return(response.json());};
 
-function displayAWork(work){
+export function displayAWork(work){
     let container = document.querySelector('.gallery'); //là où s'affichent les travaux dans le HTML
     const workContainer = document.createElement('figure'); // création dynamique card pour présenter un travaux
     const workImg = document.createElement('img');
@@ -16,7 +16,7 @@ function displayAWork(work){
 }
 
 //Afficher les travaux//
-async function displayWorks(){
+export async function displayWorks(){
     const data = await getWorks();
     const container = document.querySelector('.gallery');
     container.innerHTML = ''; 
@@ -62,7 +62,8 @@ function triWorks(buttonId, works){
 // On écoute le bouton cliqué par l'utilisateur et récupéront l'id lié
 async function btnToListen(){
     await displayFilters();
-    const buttonsToListen= document.querySelectorAll("button");
+    const divToListen = document.querySelector(".filters")
+    const buttonsToListen= divToListen.querySelectorAll("button");
     buttonsToListen.forEach(button => {
         button.addEventListener("click", async (event) => {
         const buttonId = button.getAttribute('data-id');
@@ -77,6 +78,3 @@ async function main () {
 };
 
 main();
-
-
-

@@ -152,7 +152,8 @@ li:hover {
 	margin-bottom: 20px;
 }
 #contact form, 
-#login form {
+#login form,
+.modalForm {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
@@ -161,14 +162,17 @@ li:hover {
 
 #contact input,
 #login input,
-.addPhoto{
+.addPhoto,
+.modalForm input, 
+.modalForm select{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 #contact label,
-#login label {
+#login label,
+.modalForm label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -177,7 +181,9 @@ li:hover {
 }
 
 input[type="submit"],
-.addPhoto{
+.addPhoto,
+.joinPhoto,
+.validPhoto{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -284,6 +290,7 @@ nav li a {
 	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -65%);
+	border-radius: 5px;
 }
 
 .close-modal{
@@ -338,5 +345,65 @@ nav li a {
 }
 
 .addPhoto{
-    margin: 0% 35%
+    margin: 0% 35%;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+/* travail sur les deux vues de modal   */
+.modalOne{
+	display: none;
+}
+
+.modalTwo{
+	display: flex;
+	flex-direction: column;
+}
+
+.modalTwo-Array{
+	padding: 8px 10px;
+	border: none;
+	font-size: 18px;
+	position: absolute;
+	top: 5px;
+	left: 10px; 
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.modalTwo .containerPhoto{
+	background-color: rgba(211, 237, 236);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+}
+
+.modalForm{
+	display: flex;
+	flex-direction: column;
+}
+
+.joinPhoto{
+	background-color: rgba(179, 185, 184) ;
+	color: rgba(69, 91, 150);
+}
+
+/* input[type="file"]::-webkit-file-upload-button {
+	visibility: hidden;
+}
+input[type="file"]::-webkit-file-upload-button {
+	display: none;
+} */
+/* input[t;ype="file"]::after {
+	content: 'Ajouter une photo'
+} */
+
+.validPhoto{
+	background-color: rgba(179, 185, 184) ;
+	min-width: 60%;
 }
