@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="worksAndFilters.js" defer></script>
 	<script src="isUserLoggedIn.js" defer></script>
+	<script src="modal.js" defer></script>
 </head>
 <body>
 <header>
@@ -41,9 +42,36 @@
 		</article>
 	</section>
 	<section id="portfolio">
+
+		<div class="modal-container">
+
+			<div class="overlay modal-trigger"></div>
+
+			<div class="modal">
+				<button class="close-modal modal-trigger"><i class="fa-solid fa-xmark"></i></button>
+				<h3>Galerie photo</h3>
+				<ul class="modal--gallery">
+					<li><img src="assets/images/abajour-tahina.png" alt="abajour-tahina"><i class="fa-solid fa-trash-can"></i></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"><i class="fa-solid fa-trash-can"></i></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"><i class="fa-solid fa-trash-can"></i></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+					<li><img src="assets/images/appartement-paris-v.png" alt="appartement-paris-v"></li>
+				</ul>
+				<button class="addPhoto">Ajouter une photo</button>
+			</div>
+
+		</div>
+
+
 		<div class="portfolio--h2AndButton">
 		<h2>Mes Projets</h2>
-		<button id="modifyButton"><i class="fa-solid fa-pen-to-square"></i><div>modifier</div></button>
+		<button id="modifyButton" class="modal-btn modal-trigger"><i class="fa-solid fa-pen-to-square"></i><div>modifier</div></button>
 		</div>
 
 		<!-- 1.2. Injecter les filtres -->

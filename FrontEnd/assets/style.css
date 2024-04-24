@@ -160,7 +160,8 @@ li:hover {
 }
 
 #contact input,
-#login input{
+#login input,
+.addPhoto{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
@@ -175,7 +176,8 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"],
+.addPhoto{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -236,34 +238,9 @@ nav li a {
 	color: black;
 }
 
-#modifyButton{
-	display: inline-flex;
-	background-color: white;
-	border: none;
-	gap: 10px;
-
-
-
-	position: absolute;
-    top: 0;
-    right: 0; 
-    margin-top: 8px; 
-    margin-right: 22vw;
-}
-
 #modifyButton .fa-solid.fa-pen-to-square {
 	width: auto;
 	height: auto;
-}
-
-.portfolio--h2AndButton{
-	display: flex;
-	flex-direction: row;
-	gap: 30px; 
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-    position: relative; /* Ajouter position relative pour le conteneur */
 }
 
 #portfolio h2 {
@@ -276,15 +253,90 @@ nav li a {
 	display: none;
 }
 
-@media screen and (max-width: 1440px) {
-    #boutonModifier {
-        position: static; /* Changez la position à statique pour que le bouton suive le flux normal */
-        display: block; /* Assurez-vous que le bouton est toujours visible */
-        margin-top: 10px; 
-		margin-left: auto;
-		margin-right: auto;
-    }
+.modal-container{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
 }
 
+.modal-container.active{
+	display: block;
+}
 
+.overlay{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(162, 161, 161, 0.5);
+}
 
+.modal{
+	width: 95%;
+	max-width: 500px;
+	min-width: 300px;
+	padding: 30px;
+	background: #fff;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -65%);
+}
+
+.close-modal{
+	padding: 8px 10px;
+	border: none;
+	font-size: 18px;
+	position: absolute;
+	top: 5px;
+	right: 10px; 
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.modal h3{
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+.modal--gallery{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	list-style-type: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	border-bottom: #1D6154 solid 1px;
+}
+
+.modal--gallery li{
+	width: 15%;
+	margin-bottom: 0px;
+	position: relative;
+}
+
+.modal--gallery li i{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: #fff;
+	background-color: black;
+	padding: 5px 7px;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.modal--gallery img{
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.addPhoto{
+    margin: 0% 35%
+}
