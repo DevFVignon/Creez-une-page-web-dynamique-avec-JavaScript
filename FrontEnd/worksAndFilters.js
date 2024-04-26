@@ -26,7 +26,7 @@ export async function displayWorks(){
     } 
 
 //fonction récupérer les filtres (sauf celui 'Tous')
-async function getFilters (){
+export async function getFilters (){
     const response = await fetch('http://localhost:5678/api/categories');
     return(response.json());};
     
