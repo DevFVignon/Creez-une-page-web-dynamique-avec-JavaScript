@@ -357,12 +357,20 @@ nav li a {
 
 /* travail sur les deux vues de modal   */
 .modalOne{
-	display: none;
+	display: active;
+}
+
+.modalOne.none{
+	display:none;
 }
 
 .modalTwo{
-	display: flex;
+	display: none;
 	flex-direction: column;
+}
+
+.modalTwo.active{
+	display: block;
 }
 
 .modalTwo-Array{

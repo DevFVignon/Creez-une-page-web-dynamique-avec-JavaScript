@@ -12,8 +12,8 @@ modalTriggers.forEach(trigger=>trigger.addEventListener("click", toggleModal));
 import { getWorks } from "./worksAndFilters.js";
 
 async function displayPhotos(){
-    const data = await getWorks();//on récupère les travaux
-    const gallery = document.querySelector(".modal--gallery");//on récupère la galerie du fichier html
+    const data = await getWorks();
+    const gallery = document.querySelector(".modal--gallery");
     
     data.forEach(work =>{ //pour chaque travaux récupérés on créé un container qui contient galerie et bin, chaque container s'ajoutent a la galerie
     const containerPhoto= document.createElement('li');
@@ -40,5 +40,15 @@ async function displayPhotos(){
 displayPhotos();
 
 
+const modalOne = document.querySelector(".modalOne");
+const modalTwo = document.querySelector(".modalTwo");
 
-    //  )
+function toggleModalOneTwo(){
+    modalOne.classList.toggle("none");
+    modalTwo.classList.toggle("active");
+}
+
+const triggerModalOneTwo = document.querySelectorAll(".triggerModalOneTwo");
+triggerModalOneTwo.forEach(trigger =>trigger.addEventListener("click", toggleModalOneTwo));
+
+
