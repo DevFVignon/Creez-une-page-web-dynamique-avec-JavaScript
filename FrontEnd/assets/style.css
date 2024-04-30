@@ -256,6 +256,10 @@ nav li a {
     gap: 20px;
 }
 
+button#modifyButton {
+    background: none;
+    border: none;
+}
 
 #portfolio h2 {
 	margin-bottom: 7px;
@@ -405,6 +409,7 @@ margin-bottom: 10px;
 		align-items: center;
 		justify-content: center;
 		padding: 15px 0px;
+		position: relative;
 }
 
 .modalForm{
@@ -442,26 +447,30 @@ input[type="file"]{
 .validPhoto{
 	background-color: rgba(179, 185, 184) ;
 	min-width: 60%;
-
 }
 
 .green-bar{
 	height:1px;
 	border-bottom:#1D6154 1px solid;
 	margin-top: 50px;
-
 }
-
 
 input.validPhoto {	
 	margin-bottom: 0px;
 }
 
-#imagePreview img{
-    height: 230px;
-    width: auto;
-    position: absolute;
-    left: 175px;
-    top: 110px;
+
+#imagePreview img {
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
+	right: 100px;
+	position: absolute;
+	max-height: 220px;
+	top: 0px;
+	margin: auto;
 }
+
+
+
 

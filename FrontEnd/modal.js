@@ -133,5 +133,3 @@ form.addEventListener('submit', event=>{
             alert('Une erreur s\'est produite lors de l\'envoi du formulaire.');
         });
 });
-
-
