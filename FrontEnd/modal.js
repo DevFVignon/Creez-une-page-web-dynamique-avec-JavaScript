@@ -70,13 +70,13 @@ async function displayFilters(){
 
 displayFilters();
 
-function isAFileJoined(input){
-    if (input.files && input.files.length > 0) {
-        return input.files[0];
-    } else {
-        return null; 
-    }
-}
+// function isAFileJoined(input){
+//     if (input.files && input.files.length > 0) {
+//         return input.files[0];
+//     } else {
+//         return null; 
+//     }
+// }
 
 const inputElement = document.querySelector('.joinPhoto');
 const imagePreview = document.getElementById('imagePreview');
@@ -106,8 +106,8 @@ form.addEventListener('submit', event=>{
     event.preventDefault();
     console.log('Vous avez validé l\'ajout de la photo');
     const body = {
-        image: event.target.querySelector("[name=photo").value,
-        title: event.target.querySelector("[name=title").value,
+        image: event.target.querySelector("[name='photo']").value,
+        title: event.target.querySelector("[name='title']").value,
         category: optionIdInteger
     }
     console.log(body);
@@ -124,11 +124,14 @@ form.addEventListener('submit', event=>{
         }
         return response.json(); 
     })
-    .catch(error => {
-        console.error('Erreur de connexion :', error.message);
-        console.log('Erreur de connexion :', error.message);
-    });
-
+        .then(data => {
+            alert('Formulaire envoyé avec succès !');
+            location.reload();
+        })
+        .catch(error => {
+            console.error('Erreur de connexion :', error.message);
+            alert('Une erreur s\'est produite lors de l\'envoi du formulaire.');
+        });
 });
 
 

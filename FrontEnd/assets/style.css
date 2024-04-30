@@ -249,6 +249,14 @@ nav li a {
 	height: auto;
 }
 
+.portfolio--h2AndButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
 #portfolio h2 {
 	margin-bottom: 7px;
 }
@@ -282,7 +290,7 @@ nav li a {
 
 .modal{
 	width: 95%;
-	max-width: 500px;
+	max-width: 600px;
 	min-width: 300px;
 	padding: 30px;
 	background: #fff;
@@ -290,7 +298,7 @@ nav li a {
 	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -65%);
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 .close-modal{
@@ -306,23 +314,26 @@ nav li a {
 
 .modal h3{
 	text-align: center;
-	margin-bottom: 20px;
-	font-size: 18px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	font-size: 24px;
 }
 
 .modal--gallery{
-	padding-bottom: 20px;
+	width: 80%;
+	margin: auto;
+	padding-bottom: 60px;
 	margin-bottom: 20px;
 	list-style-type: none;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 15px;
 	border-bottom: #1D6154 solid 1px;
 }
 
 .modal--gallery li{
-	width: 15%;
-	margin-bottom: 0px;
+	width: 17%;
+	margin-bottom: 15px;
 	position: relative;
 }
 
@@ -347,12 +358,9 @@ nav li a {
 .addPhoto{
     margin: 0% 35%;
 	cursor: pointer;
+	margin-top: 15px;
+margin-bottom: 10px;
 }
-
-
-
-
-
 
 
 /* travail sur les deux vues de modal   */
@@ -367,6 +375,12 @@ nav li a {
 .modalTwo{
 	display: none;
 	flex-direction: column;
+	max-height: 500px;
+	overflow:scroll;
+}
+
+.modalTwo::-webkit-scrollbar {
+    display: none; /* Masquer les barres de défilement */
 }
 
 .modalTwo.active{
@@ -396,6 +410,9 @@ nav li a {
 .modalForm{
 	display: flex;
 	flex-direction: column;
+	width: 70%;
+	margin: auto;
+
 }
 
 .fa-image{
@@ -425,9 +442,26 @@ input[type="file"]{
 .validPhoto{
 	background-color: rgba(179, 185, 184) ;
 	min-width: 60%;
+
+}
+
+.green-bar{
+	height:1px;
+	border-bottom:#1D6154 1px solid;
+	margin-top: 50px;
+
+}
+
+
+input.validPhoto {	
+	margin-bottom: 0px;
 }
 
 #imagePreview img{
-	height :230px;
-	width : auto; 
+    height: 230px;
+    width: auto;
+    position: absolute;
+    left: 175px;
+    top: 110px;
 }
+
