@@ -1,11 +1,37 @@
 const modalContainer =  document.querySelector(".modal-container");
 const modalTriggers = document.querySelectorAll(".modal-trigger");
 
-function toggleModal(){
-    modalContainer.classList.toggle("active")
+//passage de la modale une à la modale deux, et vice versa
+const modalOne = document.querySelector(".modalOne");
+const modalTwo = document.querySelector(".modalTwo");
+
+function toggleModalOneTwo(){
+    modalOne.classList.toggle("none");
+    modalTwo.classList.toggle("active");
+}
+
+function clearForm() { //sert quand la modale est fermée, pour vider le formulaire
+    form.reset(); 
+    imagePreview.innerHTML = ''; 
+}
+
+function toggleModal() {
+    if (modalContainer.classList.contains("active")) {
+        modalContainer.classList.remove("active");
+        clearForm();
+    } else {
+        modalContainer.classList.add("active");
+        modalOne.classList.remove("none");
+        modalOne.classList.add("active"); // Afficher la modalOne lors de l'ouverture de la modale
+        modalTwo.classList.remove("active"); // Masquer la modalTwo lors de l'ouverture de la modale
+    }
 }
 
 modalTriggers.forEach(trigger=>trigger.addEventListener("click", toggleModal));
+
+const triggerModalOneTwo = document.querySelectorAll(".triggerModalOneTwo");
+triggerModalOneTwo.forEach(trigger =>trigger.addEventListener("click", toggleModalOneTwo));
+
 
 
 //on insère dynamiquement les photos dans la galerie 
@@ -40,17 +66,8 @@ async function displayPhotos(){
 }
 displayPhotos();
 
-//passage de la modale une à la modale deux, et vice versa
-const modalOne = document.querySelector(".modalOne");
-const modalTwo = document.querySelector(".modalTwo");
 
-function toggleModalOneTwo(){
-    modalOne.classList.toggle("none");
-    modalTwo.classList.toggle("active");
-}
 
-const triggerModalOneTwo = document.querySelectorAll(".triggerModalOneTwo");
-triggerModalOneTwo.forEach(trigger =>trigger.addEventListener("click", toggleModalOneTwo));
 let optionIdInteger;
 
 import { getFilters } from "./worksAndFilters.js";7
@@ -69,14 +86,6 @@ async function displayFilters(){
 }
 
 displayFilters();
-
-// function isAFileJoined(input){
-//     if (input.files && input.files.length > 0) {
-//         return input.files[0];
-//     } else {
-//         return null; 
-//     }
-// }
 
 const inputElement = document.querySelector('.joinPhoto');
 const imagePreview = document.getElementById('imagePreview');
