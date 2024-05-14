@@ -94,30 +94,23 @@ inputElement.addEventListener('change', function(event){
 }
 });
 
-
-
-
-
-
 const form = document.querySelector('.modalForm');
-// const errorMessage =  document.querySelector('.errorMessage');
 
 form.addEventListener('submit', event=>{
     event.preventDefault();
-    console.log('Vous avez validé l\'ajout de la photo');
+
     const body = {
-        image: event.target.querySelector("[name='photo']").value,
+        image: event.target.querySelector("[name='photo']").files[0],
         title: event.target.querySelector("[name='title']").value,
         category: optionIdInteger
     }
-    console.log(body);
-    console.log(typeof body.image);
-    console.log(typeof body.title);
-    console.log(typeof body.category);
 
-    const chargeUtile = JSON.stringify(body);
+    const formData = new FormData();
+    formData.append("image", body.image);
+    formData.append("title", body.title);
+    formData.append("category", body.category);
 
-    fetch('http://localhost:5678/api/works', {method: "POST", headers: { "Content-Type": "application/json", 'Authorization': `Bearer ${token}` }, body: chargeUtile })
+    fetch('http://localhost:5678/api/works', {method: "POST", headers: {'Authorization': `Bearer ${token}`}, body: formData })
     .then(response => {
         if (!response.ok) {
             throw new Error('Échec de l\'ajout du produit.');

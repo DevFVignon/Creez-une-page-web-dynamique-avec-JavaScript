@@ -135,8 +135,10 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
+	aspect-ratio: 3 / 4;
+    object-fit: cover;
 }
+
 #contact, 
 #login {
 	width: 50%;
@@ -232,6 +234,10 @@ footer nav ul {
 	margin-top: 150px; 
 	margin-bottom: 150px;
 	width: 35%;
+}
+
+#logoutButton{
+	cursor: pointer;
 }
 
 #login a{
@@ -356,6 +362,7 @@ button#modifyButton {
 .modal--gallery img{
 	width: 100%;
 	height: auto;
+	aspect-ratio: 3 / 4;
 	object-fit: cover;
 }
 
