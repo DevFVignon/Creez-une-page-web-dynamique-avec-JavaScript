@@ -22,8 +22,8 @@ function toggleModal() {
     } else {
         modalContainer.classList.add("active");
         modalOne.classList.remove("none");
-        modalOne.classList.add("active"); // Afficher la modalOne lors de l'ouverture de la modale
-        modalTwo.classList.remove("active"); // Masquer la modalTwo lors de l'ouverture de la modale
+        modalOne.classList.add("active"); 
+        modalTwo.classList.remove("active"); 
     }
 }
 
@@ -65,8 +65,6 @@ async function displayPhotos(){
 });
 }
 displayPhotos();
-
-
 
 let optionIdInteger;
 
@@ -127,7 +125,7 @@ form.addEventListener('submit', event=>{
         return response.json(); 
     })
         .then(data => {
-            alert('Formulaire envoyé avec succès !');
+            alert('Travail ajouté avec succès !');
             location.reload();
         })
         .catch(error => {
